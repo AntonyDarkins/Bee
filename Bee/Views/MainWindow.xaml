@@ -7,5 +7,6 @@
     <Grid>
         <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom" Width="75" Command="{Binding ExitCmd}"/>
         <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Bottom" Width="75" Command="{Binding DamageCmd}"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="245" Margin="10,10,0,0" VerticalAlignment="Top" Width="500" ItemsSource="{Binding BeeList}"/>
     </Grid>
 </Window>

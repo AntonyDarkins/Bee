@@ -1,4 +1,6 @@
 ﻿using Bee.Interface;
+using Prism.Commands;
+using Prism.Mvvm;
 
 namespace Bee.Class
 {
@@ -38,6 +40,7 @@ namespace Bee.Class
             set
             {
                 health = value;
+                if (health<0) { health = 0; }
             }
         }
 
