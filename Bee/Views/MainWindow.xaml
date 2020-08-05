@@ -5,6 +5,7 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525">
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom" Width="75" Command="{Binding ExitCmd}"/>
+        <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Bottom" Width="75" Command="{Binding DamageCmd}"/>
     </Grid>
 </Window>
