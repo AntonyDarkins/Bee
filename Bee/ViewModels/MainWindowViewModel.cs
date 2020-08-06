@@ -2,9 +2,8 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Linq;
 
 namespace Bee.ViewModels
 {
@@ -19,8 +18,8 @@ namespace Bee.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private List<GeneralBee> beelist = new List<GeneralBee>();
-        public List<GeneralBee> BeeList
+        private ObservableCollection<GeneralBee> beelist = new ObservableCollection<GeneralBee>();
+        public ObservableCollection<GeneralBee> BeeList
         {
             get => beelist;
             set
@@ -37,7 +36,7 @@ namespace Bee.ViewModels
             DamageCmd = new DelegateCommand(ExecDamage);
             GeneralBee newbee = new GeneralBee();
 
-            this.BeeList = new List<GeneralBee>();
+            this.BeeList = new ObservableCollection<GeneralBee>();
 
             for (int i = 0; i < 30; i++)
             {

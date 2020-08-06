@@ -1,10 +1,9 @@
 ﻿using Bee.Interface;
-using Prism.Commands;
 using Prism.Mvvm;
 
 namespace Bee.Class
 {
-    public class GeneralBee: IGeneralBee
+    public class GeneralBee: BindableBase, IGeneralBee
     {
         private int QueenDeadLimit = 20;
         private int WorkerDeadLimit = 70;
@@ -31,7 +30,8 @@ namespace Bee.Class
             get => status;
             set
             {
-                status = value;
+                SetProperty(ref status, value);
+                RaisePropertyChanged(nameof(Status));
             }
         }
         public float Health
@@ -41,6 +41,7 @@ namespace Bee.Class
             {
                 health = value;
                 if (health<0) { health = 0; }
+                RaisePropertyChanged(nameof(Health));
             }
         }
 
