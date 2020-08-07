@@ -1,4 +1,12 @@
-﻿using Bee.Class;
+﻿//
+// Written by A Darkins
+// Date 6/8/2020
+// Issue : initial
+//
+// logic to handle Bees status, upadte each time damage button is pressed
+//
+
+using Bee.Class;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -18,6 +26,9 @@ namespace Bee.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        // List of all initialied bees
+        // Using Observable collection as works well with datagrid
+        //
         private ObservableCollection<GeneralBee> beelist = new ObservableCollection<GeneralBee>();
         public ObservableCollection<GeneralBee> BeeList
         {
@@ -34,8 +45,9 @@ namespace Bee.ViewModels
         {
             ExitCmd = new DelegateCommand(ExecExit);
             DamageCmd = new DelegateCommand(ExecDamage);
-            GeneralBee newbee = new GeneralBee();
 
+            // Initialise 30 bees, 10 of each type
+            GeneralBee newbee = new GeneralBee();
             this.BeeList = new ObservableCollection<GeneralBee>();
 
             for (int i = 0; i < 30; i++)
@@ -57,6 +69,7 @@ namespace Bee.ViewModels
 
         private void ExecDamage()
         {
+            // damage each bee a random amount 0-80
             var generator = new Random();
             int damage = 0;
 

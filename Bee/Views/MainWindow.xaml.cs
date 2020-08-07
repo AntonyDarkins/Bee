@@ -1,4 +1,13 @@
-﻿using System.Windows;
+﻿//
+// Written by A Darkins
+// Date 6/8/2020
+// Issue : initial
+//
+// view to display bee status
+//
+
+
+using System.Windows;
 
 namespace Bee.Views
 {

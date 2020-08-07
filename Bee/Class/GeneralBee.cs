@@ -1,14 +1,25 @@
-﻿using Bee.Interface;
+﻿//
+// Written by A Darkins
+// Date 6/8/2020
+// Issue : initial
+//
+// class for generic bee
+//
+
+
+using Bee.Interface;
 using Prism.Mvvm;
 
 namespace Bee.Class
 {
     public class GeneralBee: BindableBase, IGeneralBee
     {
+        //death threshold of each bee
         private int QueenDeadLimit = 20;
         private int WorkerDeadLimit = 70;
         private int DroneDeadLimit = 50;
 
+        //available bee types
         public enum BeeTypes
         {
             Worker = 0,
@@ -16,6 +27,7 @@ namespace Bee.Class
             Queen =2
         };
 
+        //bee status
         public enum StatusEnum
         {
             Alive = 0,
@@ -40,6 +52,7 @@ namespace Bee.Class
             set
             {
                 health = value;
+                //ensure health valid
                 if (health<0) { health = 0; }
                 RaisePropertyChanged(nameof(Health));
             }
@@ -58,7 +71,7 @@ namespace Bee.Class
         public void Damage(int damagePercentage)
         {
             float damagedone = 0;
-
+            //validate damage amount
             if (damagePercentage>100) { damagePercentage = 100; }
             if (damagePercentage < 0) { damagePercentage = 0; }
 
@@ -66,7 +79,7 @@ namespace Bee.Class
             {
                 this.Health = this.Health - damagePercentage;
 
-
+                //check if bee dead
                 switch (this.BeeType)
                 {
                     case BeeTypes.Drone:
